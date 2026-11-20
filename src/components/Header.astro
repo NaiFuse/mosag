@@ -11,7 +11,7 @@ const isActive = (href: string) => path.startsWith(href);
 <header class="site-header">
  <div class="container header-inner">
   <a class="brand" href="/" aria-label="MOSAG Gebäudeservice – Startseite">
-   <img src="/images/mosag-original.png" alt="MOSAG Logo" width="816" height="396" />
+   <img src="/images/mosag-logo.png" alt="MOSAG Logo" width="800" height="328" />
   </a>
   <nav class="nav-desktop" aria-label="Hauptnavigation">
    {links.map(l => <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>)}

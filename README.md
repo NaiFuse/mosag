@@ -22,7 +22,7 @@ npm run preview
 Den **Inhalt** dieses entpackten Ordners in das private Repository `mosag-website` hochladen. Keine `node_modules`- oder `dist`-Ordner hochladen. Die ZIP-Datei nicht als einzige Datei hochladen.
 
 ## Original-Logo
-`public/images/mosag-original.png` ist eine **unveränderte Kopie des vom Auftraggeber hochgeladenen Logo-Screenshots**. Er enthält auch die diagonalen Eckelemente. Das Logo wurde nicht neu gezeichnet oder künstlich verändert. Für eine spätere sauber freigestellte Logo-Version ist eine Originaldatei mit transparentem Hintergrund empfehlenswert.
+`public/images/mosag-logo.png` ist das Logo (freigestellt, transparenter Hintergrund) und wird im Header verwendet. `public/images/mosag-og.png` ist dieselbe Marke auf weißem Grund im Format 1200 × 630 für Social-Media-Vorschauen (`og:image`).
 
 ## Kontaktdaten und Texte
 Zentral in `src/data/site.ts` ändern. Die Leistungsseiten werden aus dieser Datei erzeugt.
