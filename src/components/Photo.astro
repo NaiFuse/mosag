@@ -4,7 +4,7 @@ interface Props { photo: PhotoSlot; class?: string; eager?: boolean; dark?: bool
 const { photo, class: cls = '', eager = false, dark = false } = Astro.props;
 ---
 {photo.src
- ? <img class={`photo ${cls}`} src={photo.src} alt={photo.alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+ ? <img class={`photo ${cls}`} src={photo.src} srcset={photo.srcset} sizes={photo.srcset ? '100vw' : undefined} alt={photo.alt} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} decoding="async" />
  : <div class={`photo photo-placeholder ${dark ? 'is-dark' : ''} ${cls}`} role="img" aria-label={`Platzhalter: ${photo.alt}`}>
      <span class="photo-note"><strong>Foto-Platzhalter</strong>{photo.note}</span>
    </div>}

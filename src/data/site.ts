@@ -20,9 +20,16 @@ export const services = [
  * einen deutlich gekennzeichneten Platzhalter. Zum Austauschen: Foto nach
  * public/images/ legen und hier z. B. src: '/images/hero.jpg' eintragen.
  */
-export type PhotoSlot = { src?: string; alt: string; note: string };
+export type PhotoSlot = { src?: string; srcset?: string; alt: string; note: string; credit?: string; creditHref?: string };
 export const photos: Record<string, PhotoSlot> = {
- hero: { alt: 'Reinigungskraft von MOSAG bei der Unterhaltsreinigung eines hellen Büros', note: 'Hero – Reinigung in einem gewerblichen Objekt (Querformat)' },
+ hero: {
+  src: '/images/hero-hochzeitsturm.jpg',
+  srcset: '/images/hero-hochzeitsturm-1280.jpg 1280w, /images/hero-hochzeitsturm.jpg 2560w',
+  alt: 'Hochzeitsturm und Russische Kapelle auf der Mathildenhöhe in Darmstadt',
+  note: 'Hero – Hochzeitsturm Darmstadt',
+  credit: 'Foto: Thomas Wolf, www.foto-tw.de · CC BY-SA 3.0 DE · farblich bearbeitet',
+  creditHref: 'https://commons.wikimedia.org/wiki/File:Darmstadt_Mathildenh%C3%B6he.jpg'
+ },
  unterhaltsreinigung: { alt: 'Gereinigter Büroarbeitsplatz', note: 'Unterhaltsreinigung im Büro' },
  treppenhausreinigung: { alt: 'Sauberes Treppenhaus mit Handlauf', note: 'Gepflegtes Treppenhaus' },
  fensterreinigung: { alt: 'Fensterreinigung an einer Glasfront', note: 'Fensterreinigung an Glasfläche' },
