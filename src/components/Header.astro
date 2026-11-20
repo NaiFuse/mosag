@@ -1,6 +1,4 @@
 ---
-interface Props { overlay?: boolean }
-const { overlay = false } = Astro.props;
 const links = [
  { href: '/leistungen/', label: 'Leistungen' },
  { href: '/ueber-uns/', label: 'Über uns' },
@@ -10,7 +8,7 @@ const links = [
 const path = Astro.url.pathname;
 const isActive = (href: string) => path.startsWith(href);
 ---
-<header class:list={['site-header', { 'is-overlay': overlay }]}>
+<header class="site-header">
  <div class="container header-inner">
   <a class="brand" href="/" aria-label="MOSAG Gebäudeservice – Startseite">
    <img src="/images/mosag-original.png" alt="MOSAG Logo" width="816" height="396" />
