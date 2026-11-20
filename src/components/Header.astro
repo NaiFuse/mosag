@@ -26,3 +26,18 @@ const isActive = (href: string) => path.startsWith(href);
   </details>
  </div>
 </header>
+<script>
+ const header = document.querySelector<HTMLElement>('.site-header');
+ const hero = document.querySelector<HTMLElement>('.hero');
+ if (header) {
+  const update = () => {
+   const h = header.offsetHeight;
+   const overHero = !!hero && hero.getBoundingClientRect().bottom > h;
+   header.classList.toggle('on-dark', overHero);
+   header.classList.toggle('is-scrolled', !overHero && window.scrollY > 0);
+  };
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+ }
+</script>
