@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
 import ContactForm from '../components/ContactForm.astro';
-import {services,site,photos,serviceLabels} from '../data/site';
+import {services,site,photos} from '../data/site';
 
 const steps = [
  { n: '01', title: 'Anfrage', text: 'Sie schildern uns Objekt, gewünschte Leistung und Intervalle – per Formular, E-Mail oder Telefon.' },
@@ -28,7 +28,7 @@ const values = [
     <Photo photo={photos.hero} class="hero-media" eager dark />
     <div class="container hero-content">
      <p class="hero-kicker">Gebäudeservice aus {site.zipCity.replace(/^\d+\s/,'')} · {site.region}</p>
-     <h1 id="hero-title">Saubere Räume.<br/>Starker Eindruck.</h1>
+     <h1 id="hero-title">Saubere Räume.<br/>Ohne Hinterherlaufen.</h1>
      <div class="hero-bottom">
       <p class="hero-lead">Zuverlässige Gebäudereinigung und Gebäudeservice für Unternehmen, Hausverwaltungen und Gewerbeimmobilien – persönlich betreut.</p>
       <div class="btn-group">
@@ -43,7 +43,7 @@ const values = [
  <!-- Einleitung -->
  <section class="section">
   <div class="container">
-   <p class="statement">MOSAG steht für Gebäudeservice, der im Alltag funktioniert: <span class="accent">gründlich, verlässlich und persönlich</span> – damit Ihre Räume jeden Tag einen guten Eindruck hinterlassen.</p>
+   <p class="statement">Suchen Sie einen Gebäudeservice, dem Sie <span class="accent">nicht hinterherlaufen müssen</span>?</p>
   </div>
  </section>
 
@@ -57,8 +57,6 @@ const values = [
    <div class="card-grid">
     {services.map(s=>(
      <a class="service-card" href={'/leistungen/'+s.slug+'/'}>
-      <span class="card-label">{serviceLabels[s.slug]}</span>
-      <Photo photo={photos[s.slug]} class="card-media" />
       <h3>{s.name}</h3>
       <p>{s.teaser}</p>
       <span class="card-link">Mehr erfahren <span aria-hidden="true">→</span></span>

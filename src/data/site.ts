@@ -43,8 +43,3 @@ export const photos: Record<string, PhotoSlot> = {
  values: { alt: 'MOSAG-Mitarbeiter vor einem betreuten Objekt in Darmstadt', note: 'Team- oder Arbeitsfoto (Hochformat)' }
 };
 
-/** Kurzlabel je Leistung für die grauen Kartenlabels der Startseite. */
-export const serviceLabels: Record<string, string> = {
- unterhaltsreinigung: 'Regelmäßig', treppenhausreinigung: 'Wohn- & Gewerbeobjekte', fensterreinigung: 'Glasflächen',
- winterdienst: 'Saisonal', hausmeisterservice: 'Objektbetreuung', sonderreinigung: 'Nach Bedarf'
-};
