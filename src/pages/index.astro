@@ -24,11 +24,9 @@ const values = [
 <Base title="Gebäudereinigung für Unternehmen in Darmstadt & Rhein-Main">
 
  <!-- Hero -->
- <section class="hero-wrap" aria-labelledby="hero-title">
-  <div class="container">
-   <div class="hero">
+ <section class="hero" aria-labelledby="hero-title">
     <Photo photo={photos.hero} class="hero-media" eager dark />
-    <div class="hero-content">
+    <div class="container hero-content">
      <p class="hero-kicker">Gebäudeservice aus {site.zipCity.replace(/^\d+\s/,'')} · {site.region}</p>
      <h1 id="hero-title">Saubere Räume.<br/>Starker Eindruck.</h1>
      <div class="hero-bottom">
@@ -39,13 +37,6 @@ const values = [
       </div>
      </div>
     </div>
-   </div>
-  </div>
- </section>
-
- <!-- Leistungsstreifen (Fakten, keine Kundenlogos) -->
- <section class="container" aria-label="Leistungsbereiche im Überblick">
-  <ul class="category-strip">{services.map(s=><li><a href={'/leistungen/'+s.slug+'/'}>{s.name}</a></li>)}</ul>
  </section>
 
  <!-- Einleitung -->
