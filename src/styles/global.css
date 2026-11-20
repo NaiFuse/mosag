@@ -11,8 +11,8 @@
   --color-secondary: #777777;
   --color-footer: #191717;
   --hero-overlay:
-    linear-gradient(to top, rgba(8, 10, 14, .78) 0%, rgba(8, 10, 14, .42) 30%, rgba(8, 10, 14, .08) 58%, rgba(8, 10, 14, 0) 82%, rgba(8, 10, 14, .32) 100%),
-    linear-gradient(to right, rgba(8, 10, 14, .38) 0%, rgba(8, 10, 14, 0) 55%);
+    linear-gradient(to top, rgba(8, 10, 14, .78) 0%, rgba(8, 10, 14, .42) 30%, rgba(8, 10, 14, .08) 58%, rgba(8, 10, 14, 0) 85%, rgba(8, 10, 14, .16) 100%),
+    linear-gradient(to right, rgba(8, 10, 14, .28) 0%, rgba(8, 10, 14, 0) 50%);
 
   --radius-card: 30px;
   --radius-hero: 32px;
