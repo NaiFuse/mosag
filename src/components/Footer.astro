@@ -1,0 +1,4 @@
+---
+import {site,services} from '../data/site';
+---
+<footer class="site-footer"><div class="container footer-grid"><div><div class="footer-brand">MOSAG<span>.</span></div><p>Professioneller Gebäudeservice für gewerbliche Immobilien im Rhein-Main-Gebiet.</p><p class="footer-small">{site.fullName}</p></div><div><h3>Leistungen</h3>{services.map(s=><a href={'/leistungen/'+s.slug+'/'}>{s.name}</a>)}</div><div><h3>Kontakt</h3><a href={'tel:'+site.phoneHref}>{site.phoneDisplay}</a><a href={'mailto:'+site.email}>{site.email}</a><p>{site.street}<br/>{site.zipCity}</p><a href="/kontakt/">Kontaktformular</a></div><div><h3>Informationen</h3><a href="/ueber-uns/">Über uns</a><a href="/einsatzgebiet/">Einsatzgebiet</a><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div></div><div class="container footer-bottom"><span>© {new Date().getFullYear()} MOSAG Gebäudeservice</span><span>Darmstadt · Rhein-Main</span></div></footer>

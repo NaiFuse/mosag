@@ -1,0 +1,6 @@
+---
+import Base from '../../layouts/Base.astro';
+import CTA from '../../components/CTA.astro';
+import {services} from '../../data/site';
+---
+<Base title="Unsere Leistungen" description="Alle sechs MOSAG Dienstleistungen für gewerbliche Kunden im Rhein-Main-Gebiet im Überblick."><section class="page-hero"><div class="container"><p class="eyebrow">MOSAG · LEISTUNGEN</p><h1>Sauberkeit hat <em>viele Facetten.</em></h1><p>Sechs Leistungsbereiche. Ein Ansprechpartner. Lösungen, die zu Ihrer Immobilie passen.</p></div></section><section class="section"><div class="container service-grid">{services.map((s,i)=><a class="service-card" href={'/leistungen/'+s.slug+'/'}><span class="service-index">0{i+1}</span><span class="service-icon" aria-hidden="true">{s.icon}</span><h2>{s.name}</h2><p>{s.intro}</p><span class="service-arrow" aria-hidden="true">↗</span></a>)}</div></section><CTA/></Base>
