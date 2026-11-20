@@ -1,4 +1,40 @@
 ---
 import {site,services} from '../data/site';
 ---
-<footer class="site-footer"><div class="container footer-grid"><div><div class="footer-brand">MOSAG<span>.</span></div><p>Professioneller Gebäudeservice für gewerbliche Immobilien im Rhein-Main-Gebiet.</p><p class="footer-small">{site.fullName}</p></div><div><h3>Leistungen</h3>{services.map(s=><a href={'/leistungen/'+s.slug+'/'}>{s.name}</a>)}</div><div><h3>Kontakt</h3><a href={'tel:'+site.phoneHref}>{site.phoneDisplay}</a><a href={'mailto:'+site.email}>{site.email}</a><p>{site.street}<br/>{site.zipCity}</p><a href="/kontakt/">Kontaktformular</a></div><div><h3>Informationen</h3><a href="/ueber-uns/">Über uns</a><a href="/einsatzgebiet/">Einsatzgebiet</a><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div></div><div class="container footer-bottom"><span>© {new Date().getFullYear()} MOSAG Gebäudeservice</span><span>Darmstadt · Rhein-Main</span></div></footer>
+<footer class="site-footer">
+ <div class="container">
+  <div class="footer-top">
+   <p class="footer-claim">Saubere Räume.<br/><span>Starker Eindruck.</span></p>
+   <a class="btn btn-primary" href="/kontakt/">Angebot anfragen</a>
+  </div>
+  <div class="footer-grid">
+   <div>
+    <p class="footer-brand">MOSAG Gebäudeservice</p>
+    <p>{site.fullName}. Gebäudereinigung und Gebäudeservice für gewerbliche Immobilien im {site.region}.</p>
+   </div>
+   <div>
+    <h2>Leistungen</h2>
+    <ul>{services.map(s=><li><a href={'/leistungen/'+s.slug+'/'}>{s.name}</a></li>)}</ul>
+   </div>
+   <div>
+    <h2>Kontakt</h2>
+    <ul>
+     <li><a href={'tel:'+site.phoneHref}>{site.phoneDisplay}</a></li>
+     <li><a href={'mailto:'+site.email}>{site.email}</a></li>
+     <li><address>{site.street}<br/>{site.zipCity}</address></li>
+    </ul>
+   </div>
+   <div>
+    <h2>Unternehmen</h2>
+    <ul>
+     <li><a href="/ueber-uns/">Über uns</a></li>
+     <li><a href="/einsatzgebiet/">Einsatzgebiet</a></li>
+     <li><a href="/kontakt/">Kontakt</a></li>
+     <li><a href="/impressum/">Impressum</a></li>
+     <li><a href="/datenschutz/">Datenschutz</a></li>
+    </ul>
+   </div>
+  </div>
+  <div class="footer-bottom"><span>© {new Date().getFullYear()} MOSAG Gebäudeservice</span><span>{site.zipCity.replace(/^\d+\s/,'')} · {site.region}</span></div>
+ </div>
+</footer>

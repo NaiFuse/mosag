@@ -13,3 +13,31 @@ export const services = [
  {slug:'hausmeisterservice',name:'Hausmeisterservice',icon:'⌂',teaser:'Verlässliche Betreuung rund um Ihre Immobilie.',intro:'Unterstützende Objektbetreuung und regelmäßige Kontroll- und Pflegeaufgaben nach Absprache.',items:['Regelmäßige Objektkontrollen','Pflege gemeinschaftlicher Bereiche','Koordination vereinbarter Serviceaufgaben']},
  {slug:'sonderreinigung',name:'Sonderreinigung',icon:'✧',teaser:'Besondere Aufgaben brauchen passende Lösungen.',intro:'Individuell geplante Reinigungsleistungen außerhalb des üblichen Turnus – passend zum Objekt und Bedarf.',items:['Reinigung bei besonderem Anlass','Individuelle Objektbesichtigung','Leistungsumfang nach Angebot']}
 ];
+
+/**
+ * Foto-Slots der Startseite.
+ * Es liegen noch keine echten MOSAG-Fotos vor. Solange `src` leer ist, zeigt die Seite
+ * einen deutlich gekennzeichneten Platzhalter. Zum Austauschen: Foto nach
+ * public/images/ legen und hier z. B. src: '/images/hero.jpg' eintragen.
+ */
+export type PhotoSlot = { src?: string; alt: string; note: string };
+export const photos: Record<string, PhotoSlot> = {
+ hero: { alt: 'Reinigungskraft von MOSAG bei der Unterhaltsreinigung eines hellen Büros', note: 'Hero – Reinigung in einem gewerblichen Objekt (Querformat)' },
+ unterhaltsreinigung: { alt: 'Gereinigter Büroarbeitsplatz', note: 'Unterhaltsreinigung im Büro' },
+ treppenhausreinigung: { alt: 'Sauberes Treppenhaus mit Handlauf', note: 'Gepflegtes Treppenhaus' },
+ fensterreinigung: { alt: 'Fensterreinigung an einer Glasfront', note: 'Fensterreinigung an Glasfläche' },
+ winterdienst: { alt: 'Geräumter Gehweg vor einem Gewerbegebäude im Winter', note: 'Winterdienst auf Außenfläche' },
+ hausmeisterservice: { alt: 'Objektbetreuung im Eingangsbereich einer Immobilie', note: 'Hausmeisterservice / Objektkontrolle' },
+ sonderreinigung: { alt: 'Gründliche Sonderreinigung einer Fläche', note: 'Sonderreinigung' },
+ process: { alt: 'Gemeinsame Objektbesichtigung vor Angebotserstellung', note: 'Objektbesichtigung / Beratungsgespräch' },
+ about1: { alt: 'Das MOSAG-Team bei der Arbeit', note: 'Team / Inhaber bei der Arbeit (Hochformat)' },
+ about2: { alt: 'Reinigungsausstattung von MOSAG', note: 'Arbeitsmaterial / Ausstattung' },
+ about3: { alt: 'Gepflegter Eingangsbereich nach der Reinigung', note: 'Ergebnis: gepflegter Eingangsbereich' },
+ values: { alt: 'MOSAG-Mitarbeiter vor einem betreuten Objekt in Darmstadt', note: 'Team- oder Arbeitsfoto (Hochformat)' }
+};
+
+/** Kurzlabel je Leistung für die grauen Kartenlabels der Startseite. */
+export const serviceLabels: Record<string, string> = {
+ unterhaltsreinigung: 'Regelmäßig', treppenhausreinigung: 'Wohn- & Gewerbeobjekte', fensterreinigung: 'Glasflächen',
+ winterdienst: 'Saisonal', hausmeisterservice: 'Objektbetreuung', sonderreinigung: 'Nach Bedarf'
+};

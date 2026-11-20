@@ -1,0 +1,10 @@
+---
+import type { PhotoSlot } from '../data/site';
+interface Props { photo: PhotoSlot; class?: string; eager?: boolean; dark?: boolean }
+const { photo, class: cls = '', eager = false, dark = false } = Astro.props;
+---
+{photo.src
+ ? <img class={`photo ${cls}`} src={photo.src} alt={photo.alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+ : <div class={`photo photo-placeholder ${dark ? 'is-dark' : ''} ${cls}`} role="img" aria-label={`Platzhalter: ${photo.alt}`}>
+     <span class="photo-note"><strong>Foto-Platzhalter</strong>{photo.note}</span>
+   </div>}

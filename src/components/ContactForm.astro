@@ -1,0 +1,22 @@
+---
+import {services} from '../data/site';
+interface Props { id?: string }
+const { id = 'kontaktformular' } = Astro.props;
+---
+<form id={id} class="inquiry-form" name="mosag-kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/danke/">
+ <input type="hidden" name="form-name" value="mosag-kontakt"/>
+ <p class="hidden-field"><label>Dieses Feld nicht ausfüllen <input name="bot-field" tabindex="-1" autocomplete="off"/></label></p>
+ <div class="form-row">
+  <label>Ihr Name *<input name="name" required autocomplete="name" maxlength="120"/></label>
+  <label>Unternehmen *<input name="unternehmen" required autocomplete="organization" maxlength="160"/></label>
+ </div>
+ <div class="form-row">
+  <label>E-Mail-Adresse *<input type="email" name="email" required autocomplete="email" maxlength="180"/></label>
+  <label>Telefon (optional)<input type="tel" name="telefon" autocomplete="tel" maxlength="50"/></label>
+ </div>
+ <label>Gewünschte Leistung<select name="leistung"><option value="">Bitte auswählen</option>{services.map(s=><option value={s.name}>{s.name}</option>)}</select></label>
+ <label>Ihre Nachricht *<textarea name="nachricht" rows="5" required maxlength="4000" placeholder="Beschreiben Sie Ihr Objekt und die gewünschte Leistung …"></textarea></label>
+ <label class="consent"><input type="checkbox" name="datenschutz-bestaetigt" value="ja" required/><span>Ich habe die <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzhinweise</a> zur Verarbeitung meiner Anfrage zur Kenntnis genommen. *</span></label>
+ <button type="submit" class="btn btn-primary">Anfrage senden</button>
+ <p class="fineprint"><strong>Hinweis zur Testversion:</strong> Der Formularversand funktioniert erst nach Einrichtung und Aktivierung von Netlify Forms. Bis dahin erreichen Sie uns per E-Mail oder Telefon.</p>
+</form>
