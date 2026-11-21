@@ -73,17 +73,13 @@ h3 { font-size: var(--fs-h3); line-height: 1.1; letter-spacing: -0.03em; }
   border: 2px solid transparent; border-radius: var(--radius-button);
   font-size: clamp(16px, 1.25vw, 19px); font-weight: 600; line-height: 1.2;
   text-decoration: none; white-space: nowrap;
-  transition: background-color .2s, color .2s, border-color .2s, transform .2s;
+  transition: transform .4s cubic-bezier(.2, .7, .2, 1);
 }
-.btn:hover, .button:hover { transform: translateY(-1px); }
+/* Hover: grow very slightly */
+.btn:hover, .button:hover, .btn:focus-visible, .button:focus-visible { transform: scale(1.03); }
 .btn-lg { min-height: 64px; padding: 18px 34px; }
-/* Hover: colours invert */
-.btn-primary, .button-primary { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
-.btn-primary:hover, .button-primary:hover,
-.btn-primary:focus-visible, .button-primary:focus-visible { background: #fff; color: var(--color-primary); }
-.btn-secondary, .button-light { background: #fff; color: var(--color-primary); border-color: #fff; }
-.btn-secondary:hover, .button-light:hover,
-.btn-secondary:focus-visible, .button-light:focus-visible { background: var(--color-primary); color: #fff; }
+.btn-primary, .button-primary { background: var(--color-primary); color: #fff; }
+.btn-secondary, .button-light { background: #fff; color: var(--color-primary); }
 .btn-outline { border-color: var(--color-primary); }
 .btn-group { display: flex; flex-wrap: wrap; gap: 14px; }
 
@@ -105,10 +101,10 @@ h3 { font-size: var(--fs-h3); line-height: 1.1; letter-spacing: -0.03em; }
 .footer-info a, .footer-legal a { background-size: 0 1px; }
 .footer-info a:hover, .footer-legal a:hover, .footer-info a:focus-visible, .footer-legal a:focus-visible { background-size: 100% 1px; }
 /* Arrows nudge in their direction */
-.btn [aria-hidden="true"], .button [aria-hidden="true"], .card-link [aria-hidden="true"], .service-arrow {
+.card-link [aria-hidden="true"], .service-arrow {
   display: inline-block; transition: transform .3s var(--ease-draw);
 }
-.btn:hover [aria-hidden="true"], .button:hover [aria-hidden="true"], .service-card:hover .card-link [aria-hidden="true"] { transform: translateX(4px); }
+.service-card:hover .card-link [aria-hidden="true"] { transform: translateX(4px); }
 .service-card:hover .service-arrow { transform: translate(4px, -4px); }
 
 /* Header ---------------------------------------------------------------- */
