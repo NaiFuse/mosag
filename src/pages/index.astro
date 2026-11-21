@@ -4,10 +4,10 @@ import Photo from '../components/Photo.astro';
 import ContactForm from '../components/ContactForm.astro';
 import {services,site,photos} from '../data/site';
 
-const steps = [
- { n: '01', title: 'Anfrage', text: 'Sie schildern uns Objekt, gewünschte Leistung und Intervalle – per Formular, E-Mail oder Telefon.' },
- { n: '02', title: 'Besichtigung & Angebot', text: 'Wir klären die Anforderungen vor Ort oder im Gespräch und erstellen ein individuelles, transparentes Angebot.' },
- { n: '03', title: 'Zuverlässige Ausführung', text: 'Die vereinbarten Leistungen werden regelmäßig umgesetzt – mit einem festen Ansprechpartner für Rückfragen.' }
+const reasons = [
+ { n: '01', title: 'Direkt vor Ort', text: 'Wir sind in Ihrer Nähe und betreuen Unternehmen im gesamten Rhein-Main-Gebiet.' },
+ { n: '02', title: 'Immer sauber', text: 'Mal gründlich, mal halbherzig? Gibt’s bei uns nicht. Sie bekommen die gleiche gründliche Reinigung. Immer.' },
+ { n: '03', title: 'Direkt erreichbar', text: '„Da muss ich erst den Kollegen fragen.“ hören Sie bei uns nicht. Sie sprechen direkt mit der Geschäftsführung.' }
 ];
 const stats = [
  { value: String(services.length), label: 'Leistungsbereiche aus einer Hand' },
@@ -37,7 +37,6 @@ const values = [
       </div>
      </div>
     </div>
-    {photos.hero.credit && <a class="hero-credit" href={photos.hero.creditHref} target="_blank" rel="noopener">{photos.hero.credit}</a>}
  </section>
 
  <!-- Einleitung -->
@@ -51,7 +50,7 @@ const values = [
  <section class="section section-tight-top" id="leistungen" aria-labelledby="leistungen-title">
   <div class="container">
    <div class="section-head">
-    <h2 id="leistungen-title">Was <span class="accent">machen wir</span>?</h2>
+    <h2 id="leistungen-title"><span class="accent">Was</span> machen wir?</h2>
    </div>
    <div class="card-grid">
     {services.map(s=>(
@@ -64,19 +63,21 @@ const values = [
   </div>
  </section>
 
- <!-- Ablauf -->
- <section class="section section-muted" aria-labelledby="ablauf-title">
-  <div class="container two-col">
-   <div>
-    <h2 id="ablauf-title">In drei Schritten zu <span class="accent">sauberen Räumen</span></h2>
-    <ol class="steps">
-     {steps.map(st=>(
-      <li><span class="step-n">{st.n}</span><div><h3>{st.title}</h3><p>{st.text}</p></div></li>
-     ))}
-    </ol>
-    <a class="btn btn-primary" href="#kontakt">Jetzt anfragen</a>
+ <!-- Warum wir -->
+ <section class="section section-muted" aria-labelledby="warum-title">
+  <div class="container">
+   <div class="section-head">
+    <h2 id="warum-title"><span class="accent">Warum</span> wir?</h2>
    </div>
-   <Photo photo={photos.process} class="tall-media" />
+   <ol class="reasons">
+    {reasons.map(r=>(
+     <li class="reason">
+      <span class="reason-n" aria-hidden="true">{r.n}</span>
+      <h3>{r.title}</h3>
+      <p>{r.text}</p>
+     </li>
+    ))}
+   </ol>
   </div>
  </section>
 
