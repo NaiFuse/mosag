@@ -28,7 +28,7 @@ const values = [
     <Photo photo={photos.hero} class="hero-media" eager dark />
     <div class="container hero-content">
      <p class="hero-kicker">Gebäudeservice aus {site.zipCity.replace(/^\d+\s/,'')} · {site.region}</p>
-     <h1 id="hero-title">Saubere Räume.<br/>Ohne Hinterherlaufen.</h1>
+     <h1 id="hero-title">Gebäudeservice in Darmstadt</h1>
      <div class="hero-bottom">
       <p class="hero-lead">Zuverlässige Gebäudereinigung und Gebäudeservice für Unternehmen, Hausverwaltungen und Gewerbeimmobilien – persönlich betreut.</p>
       <div class="btn-group">
@@ -51,14 +51,12 @@ const values = [
  <section class="section section-tight-top" id="leistungen" aria-labelledby="leistungen-title">
   <div class="container">
    <div class="section-head">
-    <h2 id="leistungen-title">Unsere <span class="accent">Leistungen</span></h2>
-    <p>Durchdachte Gebäudedienstleistungen für den gewerblichen Alltag – abgestimmt auf Ihre Immobilie.</p>
+    <h2 id="leistungen-title">Was <span class="accent">machen wir</span>?</h2>
    </div>
    <div class="card-grid">
     {services.map(s=>(
      <a class="service-card" href={'/leistungen/'+s.slug+'/'}>
       <h3>{s.name}</h3>
-      <p>{s.teaser}</p>
       <span class="card-link">Mehr erfahren <span aria-hidden="true">→</span></span>
      </a>
     ))}
