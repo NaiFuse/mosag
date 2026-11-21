@@ -203,7 +203,9 @@ h3 { font-size: var(--fs-h3); line-height: 1.1; letter-spacing: -0.03em; }
 }
 .hero-kicker { font-size: 18px; font-weight: 500; margin: 0; opacity: .9; }
 .hero h1 { margin: 0; max-width: 12ch; }
-.hero-bottom { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(24px, 2.4vw, 36px); }
+.hero-bottom { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px 48px; }
+.hero-bottom .btn-group { margin-right: clamp(0px, 8vw, 140px); }
+@media (max-width: 960px) { .hero-bottom .btn-group { margin-right: 0; } }
 .hero-cta { min-height: clamp(64px, 5.6vw, 84px); padding: 20px clamp(36px, 4vw, 60px); font-size: clamp(19px, 1.7vw, 25px); border-radius: 24px; }
 .hero-credit { margin: 10px auto 0; text-align: right; font-size: 11px; line-height: 1.4; color: var(--color-secondary); opacity: .7; }
 .hero-credit a { text-decoration: none; }
