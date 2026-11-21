@@ -307,6 +307,16 @@ form .btn { justify-self: start; }
 .page-hero p:not(.eyebrow) { font-size: clamp(17px, 1.5vw, 21px); color: var(--color-secondary); max-width: 44ch; }
 .page-hero + .section { padding-top: 0; }
 .split, .detail-grid, .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); }
+/* Über uns – Artikel */
+.article-inner { max-width: 800px; }
+.article h1 { font-size: clamp(40px, 5.6vw, 80px); line-height: 1.05; margin-bottom: clamp(32px, 4vw, 56px); }
+.article h2 { font-size: clamp(28px, 3.2vw, 44px); margin-bottom: clamp(24px, 3vw, 40px); }
+.article p { font-size: clamp(18px, 1.5vw, 21px); line-height: 1.7; color: var(--color-secondary); margin: 0 0 1em; }
+.article p strong { color: var(--color-text); font-weight: 600; }
+.article-punch { margin-top: 1.6em !important; }
+.article-punch strong { font-size: clamp(22px, 2.2vw, 30px); line-height: 1.35; color: var(--color-primary) !important; }
+.article-sign { margin-top: clamp(40px, 5vw, 64px) !important; padding-top: 24px; border-top: 1px solid rgba(0,0,0,.12); color: var(--color-text) !important; font-weight: 600; display: grid; }
+.article-sign span { font-weight: 400; color: var(--color-secondary); font-size: .9em; }
 .prose p, .detail-grid p { color: var(--color-secondary); }
 .prose .button, .detail-grid .button { margin-top: 16px; }
 .detail-lead { font-size: clamp(19px, 1.7vw, 24px); color: var(--color-text) !important; }
