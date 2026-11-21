@@ -23,12 +23,12 @@ export const services = [
 export type PhotoSlot = { src?: string; srcset?: string; alt: string; note: string; credit?: string; creditHref?: string };
 export const photos: Record<string, PhotoSlot> = {
  hero: {
-  src: '/images/hero-hochzeitsturm.jpg',
-  srcset: '/images/hero-hochzeitsturm-1280.jpg 1280w, /images/hero-hochzeitsturm.jpg 2560w',
-  alt: 'Hochzeitsturm und Russische Kapelle auf der Mathildenhöhe in Darmstadt',
+  src: '/images/hero-hochzeitsturm-himmel.jpg',
+  srcset: '/images/hero-hochzeitsturm-himmel-1280.jpg 1280w, /images/hero-hochzeitsturm-himmel.jpg 2560w',
+  alt: 'Hochzeitsturm (Fünffingerturm) auf der Mathildenhöhe in Darmstadt vor blauem Himmel',
   note: 'Hero – Hochzeitsturm Darmstadt',
-  credit: 'Foto: Thomas Wolf, www.foto-tw.de · CC BY-SA 3.0 DE · farblich bearbeitet',
-  creditHref: 'https://commons.wikimedia.org/wiki/File:Darmstadt_Mathildenh%C3%B6he.jpg'
+  credit: 'Foto: Tilman2007 · CC BY-SA 4.0 · Himmel erweitert',
+  creditHref: 'https://commons.wikimedia.org/wiki/File:Mathildenh%C3%B6he,_Hochzeitsturm_Darmstadt_20200902_011.jpg'
  },
  unterhaltsreinigung: { alt: 'Gereinigter Büroarbeitsplatz', note: 'Unterhaltsreinigung im Büro' },
  treppenhausreinigung: { alt: 'Sauberes Treppenhaus mit Handlauf', note: 'Gepflegtes Treppenhaus' },
