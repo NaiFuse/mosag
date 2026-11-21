@@ -20,11 +20,12 @@ const reasons = [
      <div class="hero-bottom">
       <p class="hero-lead">Zuverlässige Gebäudereinigung und Gebäudeservice für Unternehmen, Hausverwaltungen und Gewerbeimmobilien – persönlich betreut.</p>
       <div class="btn-group">
-       <a class="btn btn-primary btn-lg hero-cta" href="/apply/"><span class="btn-label">Wie viel kostet das?</span></a>
+       <a class="btn btn-secondary btn-lg hero-cta" href="/apply/"><span class="btn-label">Wie viel kostet das?</span></a>
       </div>
      </div>
     </div>
  </section>
+ {photos.hero.credit && <p class="container hero-credit"><a href={photos.hero.creditHref} target="_blank" rel="noopener">{photos.hero.credit}</a></p>}
 
  <!-- Einleitung -->
  <section class="section">
