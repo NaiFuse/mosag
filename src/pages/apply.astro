@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+<Base title="Preis für Ihr Objekt anfragen">
+ <section class="page-hero">
+  <div class="container">
+   <h1><em>Wie viel</em> kostet mich das?</h1>
+   <p>Erzählen Sie uns kurz von Ihrem Objekt – wir melden uns mit einem unverbindlichen Preis.</p>
+  </div>
+ </section>
+ <section class="section section-tight-top">
+  <div class="container apply-wrap">
+   <div class="form-shell">
+    <h2>Preis anfragen</h2>
+    <p>Bitte füllen Sie die Felder aus. Pflichtfelder sind mit * markiert.</p>
+    <ContactForm id="preisanfrage" />
+   </div>
+  </div>
+ </section>
+</Base>

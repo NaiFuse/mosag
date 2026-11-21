@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
-import ContactForm from '../components/ContactForm.astro';
 import {services,site,photos} from '../data/site';
 
 const reasons = [
@@ -70,21 +69,13 @@ const reasons = [
   </div>
  </section>
 
- <!-- Kontakt -->
- <section class="section" id="kontakt" aria-labelledby="kontakt-title">
-  <div class="container contact-home">
-   <div class="contact-cta">
-    <h2 id="kontakt-title">Ihr Objekt. <br/>Unser Anspruch.</h2>
-    <p>Beschreiben Sie uns Ihren Bedarf – wir melden uns mit einem unverbindlichen Angebot.</p>
-    <ul class="contact-lines">
-     <li><span>Telefon</span><a href={'tel:'+site.phoneHref}>{site.phoneDisplay}</a></li>
-     <li><span>E-Mail</span><a href={'mailto:'+site.email}>{site.email}</a></li>
-     <li><span>Standort</span><strong>{site.street}, {site.zipCity}</strong></li>
-    </ul>
-   </div>
-   <div class="form-card">
-    <h3>Angebot anfragen</h3>
-    <ContactForm id="kontaktformular-start" />
+ <!-- Preis-CTA -->
+ <section class="section" id="kontakt" aria-labelledby="preis-title">
+  <div class="container">
+   <div class="price-cta">
+    <h2 id="preis-title"><span class="accent">Wie viel</span> kostet mich das?</h2>
+    <p>Schauen Sie sich an, wie viel es kostet, speziell Ihr Objekt zu reinigen.</p>
+    <a class="btn btn-primary btn-xl" href="/apply/">Preis ansehen</a>
    </div>
   </div>
  </section>
