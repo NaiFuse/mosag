@@ -9,17 +9,6 @@ const reasons = [
  { n: '02', title: 'Immer sauber', text: 'Mal gründlich, mal halbherzig? Gibt’s bei uns nicht. Sie bekommen die gleiche gründliche Reinigung. Immer.' },
  { n: '03', title: 'Direkt erreichbar', text: '„Da muss ich erst den Kollegen fragen.“ hören Sie bei uns nicht. Sie sprechen direkt mit der Geschäftsführung.' }
 ];
-const stats = [
- { value: String(services.length), label: 'Leistungsbereiche aus einer Hand' },
- { value: '1', label: 'Persönlicher Ansprechpartner' },
- { value: 'Darmstadt', label: 'Unser Unternehmensstandort' },
- { value: 'Rhein-Main', label: 'Unser Einsatzgebiet' }
-];
-const values = [
- { title: 'Persönlich erreichbar', text: 'Ein direkter Ansprechpartner für Ihre Fragen, Wünsche und Anpassungen.' },
- { title: 'Passend zu Ihrem Objekt', text: 'Leistungsumfang und Reinigungsrhythmus werden individuell mit Ihnen abgestimmt.' },
- { title: 'Regional verbunden', text: 'Aus Darmstadt für gewerbliche Kunden im gesamten Rhein-Main-Gebiet.' }
-];
 ---
 <Base title="Gebäudereinigung für Unternehmen in Darmstadt & Rhein-Main">
 
@@ -78,45 +67,6 @@ const values = [
      </li>
     ))}
    </ol>
-  </div>
- </section>
-
- <!-- Über uns -->
- <section class="section" aria-labelledby="about-title">
-  <div class="container about">
-   <div class="gallery">
-    <Photo photo={photos.about1} class="g1" />
-    <Photo photo={photos.about2} class="g2" />
-    <Photo photo={photos.about3} class="g3" />
-   </div>
-   <div class="about-copy">
-    <h2 id="about-title">Gebäudeservice <span class="accent">aus Darmstadt</span></h2>
-    <p>MOSAG – {site.fullName} – bietet Reinigungs- und Gebäudedienstleistungen für gewerbliche Kunden im {site.region} an.</p>
-    <p>Im Mittelpunkt stehen eine klare Abstimmung, persönliche Erreichbarkeit und Leistungen, die zum jeweiligen Objekt passen. Ihr Ansprechpartner: <strong>{site.contactName}</strong>.</p>
-    <a class="btn btn-secondary btn-outline" href="/ueber-uns/">Mehr über uns</a>
-   </div>
-  </div>
- </section>
-
- <!-- Kennzahlen (nur belegbare Fakten) -->
- <section class="section section-tight-top" aria-label="MOSAG in Zahlen und Fakten">
-  <div class="container">
-   <ul class="stats">
-    {stats.map(st=><li><span class="stat-value">{st.value}</span><span class="stat-label">{st.label}</span></li>)}
-   </ul>
-  </div>
- </section>
-
- <!-- Werte -->
- <section class="section section-muted" aria-labelledby="werte-title">
-  <div class="container values">
-   <div class="values-copy">
-    <h2 id="werte-title">Wofür <span class="accent">wir stehen</span></h2>
-    <div class="value-cards">
-     {values.map(v=><article class="value-card"><h3>{v.title}</h3><p>{v.text}</p></article>)}
-    </div>
-   </div>
-   <Photo photo={photos.values} class="tall-media" />
   </div>
  </section>
 
