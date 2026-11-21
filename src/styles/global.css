@@ -204,6 +204,7 @@ h3 { font-size: var(--fs-h3); line-height: 1.1; letter-spacing: -0.03em; }
 .hero-kicker { font-size: 18px; font-weight: 500; margin: 0; opacity: .9; }
 .hero h1 { margin: 0; max-width: 12ch; }
 .hero-bottom { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 28px 48px; }
+.hero-cta { min-height: clamp(64px, 5.6vw, 84px); padding: 20px clamp(36px, 4vw, 60px); font-size: clamp(19px, 1.7vw, 25px); border-radius: 24px; }
 .hero-lead { max-width: 46ch; margin: 0; font-weight: 500; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.55; opacity: .92; }
 
 /* Sections -------------------------------------------------------------- */
