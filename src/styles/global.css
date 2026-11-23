@@ -234,6 +234,10 @@ h3 { font-size: var(--fs-h3); line-height: 1.1; letter-spacing: -0.03em; }
   transition: transform .25s;
 }
 .service-card:hover { transform: translateY(-4px); }
+.card-photo { display: block; aspect-ratio: 4 / 3; height: auto; border-radius: 14px; background: var(--color-muted); transition: transform .4s; }
+.service-card { overflow: hidden; }
+.service-card:hover .card-photo { transform: scale(1.015); }
+.service-grid .card-photo { margin-bottom: 6px; }
 .service-card h3, .service-card h2 { font-size: var(--fs-h3); margin: 10px 10px 0; }
 .service-card p { margin: 0 10px; color: var(--color-secondary); }
 .card-link { margin: auto 10px 0; padding-top: 8px; color: var(--color-primary); font-weight: 600; }

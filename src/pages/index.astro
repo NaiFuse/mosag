@@ -43,6 +43,7 @@ const reasons = [
    <div class="card-grid">
     {services.map(s=>(
      <a class="service-card" href={'/leistungen/'+s.slug+'/'}>
+      <Photo photo={photos[s.slug]} class="card-photo" />
       <h3>{s.name}</h3>
       <span class="card-link">Mehr erfahren <span aria-hidden="true">→</span></span>
      </a>
