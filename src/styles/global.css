@@ -317,7 +317,6 @@ h3 { font-size: var(--fs-h3); line-height: 1.1; letter-spacing: -0.03em; }
 .price-cta h2 { font-size: clamp(44px, 8vw, 120px); line-height: 1.02; letter-spacing: -0.045em; margin: 0 0 clamp(20px, 2.4vw, 36px); }
 .price-cta p { font-size: clamp(19px, 2vw, 28px); color: var(--color-secondary); max-width: 32ch; margin: 0 0 clamp(40px, 4.5vw, 72px); }
 .btn-xl { min-height: clamp(72px, 7vw, 104px); padding: 24px clamp(48px, 6vw, 96px); font-size: clamp(25px, 2.375vw, 35px); border-radius: var(--radius-hero); }
-.apply-wrap { max-width: 860px; }
 .form-card, .form-shell { background: var(--color-surface); border-radius: var(--radius-card); padding: clamp(24px, 3.4vw, 48px); }
 .form-card h3 { margin-bottom: 24px; }
 
@@ -436,3 +435,81 @@ form .btn { justify-self: start; }
 .stat-value { font-size: clamp(36px, 3.2vw, 48px); overflow-wrap: normal; hyphens: none; }
 .hero h1 { hyphens: none; }
 @media (max-width: 960px) { .hero-media .photo-note { display: none; } }
+
+/* Preisanfrage – Fragen-Flow (/apply/) ---------------------------------- */
+.flow-section { padding-block: clamp(40px, 7vw, 112px); min-height: calc(100svh - var(--header-h)); display: flex; }
+.flow-wrap { max-width: 920px; display: flex; }
+.flow { display: flex; flex-direction: column; width: 100%; }
+.flow-title { font-size: clamp(48px, 8vw, 112px); line-height: 1.02; letter-spacing: -0.045em; margin: 0 0 clamp(20px, 2.4vw, 32px); max-width: 13ch; hyphens: none; }
+.flow-lead { font-size: clamp(18px, 1.7vw, 24px); color: var(--color-secondary); max-width: 38ch; margin: 0 0 clamp(32px, 4vw, 56px); }
+.flow-title:focus, .flow-q:focus { outline: none; }
+.flow-intro > .btn, .flow-done { align-self: flex-start; }
+
+.flow-meta { margin-bottom: clamp(28px, 4vw, 48px); }
+.flow-meta[hidden] { display: none; }
+.flow-count { font-size: 15px; color: var(--color-secondary); margin: 0 0 14px; }
+.flow-progress { height: 6px; border-radius: 99px; background: var(--color-muted); overflow: hidden; }
+.flow-progress span { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--color-primary); transition: width .45s var(--ease-draw); }
+
+.flow-form { display: block; }
+.flow-step { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: 16px; }
+.flow-q { font-size: clamp(32px, 4.4vw, 60px); line-height: 1.08; margin: 0 0 clamp(12px, 1.6vw, 24px); max-width: 20ch; hyphens: none; }
+.flow-hint { color: var(--color-secondary); margin: calc(clamp(12px, 1.6vw, 24px) * -1) 0 8px; }
+.flow-options { display: grid; gap: 12px; }
+.flow-options.cols-2 { grid-template-columns: 1fr 1fr; }
+.flow-option {
+  position: relative; display: flex !important; align-items: center; gap: 16px;
+  min-height: 68px; padding: 18px 24px;
+  background: var(--color-surface); border: 2px solid transparent; border-radius: var(--radius-button);
+  font-size: clamp(17px, 1.4vw, 20px) !important; font-weight: 500 !important; cursor: pointer;
+  transition: border-color .2s, transform .2s;
+}
+.flow-option:hover { border-color: #D6D4D1; transform: translateY(-1px); }
+.flow-option input { position: absolute; left: 24px; top: 50%; opacity: 0; width: 1px; height: 1px; padding: 0; margin: 0; pointer-events: none; }
+.flow-option:has(input:checked) { border-color: var(--color-primary); }
+.flow-option:has(input:focus-visible) { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+.flow-mark { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #C9C7C3; display: grid; place-items: center; transition: background-color .2s, border-color .2s; }
+.flow-mark.is-box { border-radius: 7px; }
+.flow-mark::after { content: ''; width: 10px; height: 6px; border: solid #fff; border-width: 0 0 2px 2px; transform: translateY(-1px) rotate(-45deg); opacity: 0; }
+.flow-option:has(input:checked) .flow-mark { background: var(--color-primary); border-color: var(--color-primary); }
+.flow-option:has(input:checked) .flow-mark::after { opacity: 1; }
+
+.flow-field { font-size: 16px !important; }
+.flow-field input, .flow-field textarea { background: var(--color-surface); border-color: transparent; border-width: 2px; border-radius: var(--radius-button); padding: 18px 22px; font-size: 18px; }
+.flow-field input:focus, .flow-field textarea:focus { border-color: var(--color-primary); outline: none; }
+.flow-optional { font-weight: 400; color: var(--color-secondary); }
+.flow-step.has-error input:invalid, .flow-step.has-error textarea:invalid { border-color: #C2410C; }
+.flow-error { margin: 0; color: #C2410C; font-size: 15px; font-weight: 500; }
+.flow-error:empty { display: none; }
+
+.flow-nav { display: flex; align-items: center; gap: 28px; margin-top: clamp(12px, 2vw, 24px); }
+.flow-nav .btn { justify-self: auto; min-width: 180px; }
+.flow-back { background: none; border: 0; padding: 4px 0; color: var(--color-secondary); font-size: 17px; text-decoration: underline; text-underline-offset: 6px; }
+.flow-back:hover { color: var(--color-text); }
+
+.flow-sign { display: grid; gap: 2px; font-weight: 600; margin: 0; }
+.flow-sign span { font-weight: 400; color: var(--color-secondary); }
+.flow-sign a, .flow-failed a { color: var(--color-primary); }
+.flow-done[hidden], .flow-failed[hidden], .flow-form[hidden] { display: none; }
+.flow-failed { margin-top: 20px; background: #FFF4DB; color: #6B4E12; border-radius: 18px; padding: 16px 20px; }
+.flow-failed p { margin: 0; }
+.flow-privacy { margin: auto 0 0; padding-top: clamp(48px, 7vw, 96px); font-size: 15px; color: var(--color-secondary); }
+.flow-privacy a { text-underline-offset: 5px; }
+
+/* Mit JavaScript: immer nur ein Schritt sichtbar */
+.flow.is-js .flow-intro:not(.is-active), .flow.is-js .flow-step:not(.is-active) { display: none; }
+.flow.is-js .flow-intro.is-active, .flow.is-js .flow-step.is-active, .flow-done:not([hidden]) { animation: flow-in .4s var(--ease-draw) both; }
+.flow.is-js .flow-step[data-auto]:not(:has(input:checked)) [data-next] { display: none; }
+@keyframes flow-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+/* Ohne JavaScript: alle Fragen untereinander als normales Formular */
+.flow:not(.is-js) .flow-intro, .flow:not(.is-js) [data-next], .flow:not(.is-js) [data-back] { display: none; }
+.flow:not(.is-js) .flow-step + .flow-step { margin-top: 64px; }
+
+@media (max-width: 640px) {
+  .flow-options.cols-2 { grid-template-columns: 1fr; }
+  .flow-option { min-height: 60px; padding: 16px 20px; }
+  .flow-nav { flex-direction: column; align-items: stretch; gap: 16px; }
+  .flow-nav .btn { width: 100%; }
+  .flow-back { align-self: center; }
+  .flow-intro > .btn { align-self: stretch; }
+}

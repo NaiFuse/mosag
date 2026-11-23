@@ -1,0 +1,273 @@
+---
+import { site, services } from '../data/site';
+
+type Option = { value: string; label: string };
+const objekte: Option[] = [
+ { value: 'Büro / Praxis', label: 'Büro oder Praxis' },
+ { value: 'Wohnanlage / Treppenhaus', label: 'Wohnanlage oder Treppenhaus' },
+ { value: 'Laden / Gastronomie', label: 'Laden oder Gastronomie' },
+ { value: 'Sonstiges', label: 'Etwas anderes' }
+];
+const flaechen: Option[] = [
+ { value: 'bis 200 m²', label: 'Bis 200 m²' },
+ { value: '200–500 m²', label: '200 bis 500 m²' },
+ { value: '500–1.500 m²', label: '500 bis 1.500 m²' },
+ { value: 'über 1.500 m²', label: 'Über 1.500 m²' },
+ { value: 'unbekannt', label: 'Weiß ich nicht genau' }
+];
+const frequenzen: Option[] = [
+ { value: 'täglich', label: 'Täglich' },
+ { value: 'mehrmals pro Woche', label: 'Mehrmals pro Woche' },
+ { value: 'wöchentlich', label: 'Einmal pro Woche' },
+ { value: '14-tägig oder seltener', label: 'Alle zwei Wochen oder seltener' },
+ { value: 'einmalig', label: 'Nur einmal' }
+];
+const starts: Option[] = [
+ { value: 'so bald wie möglich', label: 'So bald wie möglich' },
+ { value: 'in 1–3 Monaten', label: 'In den nächsten 1 bis 3 Monaten' },
+ { value: 'später', label: 'Später' },
+ { value: 'vergleicht erst', label: 'Ich vergleiche erst einmal' }
+];
+// Leistungen, bei denen ein Turnus sinnvoll ist – sonst wird die Frage übersprungen.
+const recurring = ['unterhaltsreinigung', 'treppenhausreinigung', 'fensterreinigung', 'hausmeisterservice'];
+---
+<div class="flow" id="preisanfrage" data-recurring={recurring.join(',')}>
+ <script is:inline>document.getElementById('preisanfrage').classList.add('is-js');</script>
+
+ <div class="flow-intro is-active" data-intro>
+  <h1 class="flow-title" tabindex="-1">Was kostet Ihre Reinigung?</h1>
+  <p class="flow-lead">Ein paar kurze Fragen, etwa eine Minute. Danach melden wir uns mit einem unverbindlichen Preis.</p>
+  <button type="button" class="btn btn-primary btn-lg" data-start><span class="btn-label">Starten</span></button>
+ </div>
+
+ <div class="flow-meta" data-meta hidden>
+  <p class="flow-count" aria-live="polite" data-count>Frage 1 von 7</p>
+  <div class="flow-progress" aria-hidden="true"><span data-bar></span></div>
+ </div>
+
+ <form class="flow-form" name="mosag-preisanfrage" method="POST" action="/danke/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+  <input type="hidden" name="form-name" value="mosag-preisanfrage"/>
+  <p class="hidden-field"><label>Dieses Feld nicht ausfüllen <input name="bot-field" tabindex="-1" autocomplete="off"/></label></p>
+
+  <fieldset class="flow-step" data-step="leistungen" data-group aria-labelledby="q-leistungen">
+   <h2 class="flow-q" id="q-leistungen" tabindex="-1">Welche Leistungen brauchen Sie?</h2>
+   <p class="flow-hint">Mehrfachauswahl möglich.</p>
+   <div class="flow-options cols-2">
+    {services.map(s => (
+     <label class="flow-option"><input type="checkbox" name="leistungen" value={s.name} data-slug={s.slug}/><span class="flow-mark is-box" aria-hidden="true"></span><span>{s.name}</span></label>
+    ))}
+   </div>
+   <p class="flow-error" role="alert" data-error-text="Bitte wählen Sie mindestens eine Leistung."></p>
+   <div class="flow-nav"><button type="button" class="btn btn-primary btn-lg" data-next><span class="btn-label">Weiter</span></button></div>
+  </fieldset>
+
+  <fieldset class="flow-step" data-step="objekt" data-auto aria-labelledby="q-objekt">
+   <h2 class="flow-q" id="q-objekt" tabindex="-1">Was für ein Objekt ist es?</h2>
+   <div class="flow-options">
+    {objekte.map(o => <label class="flow-option"><input type="radio" name="objekt" value={o.value} required/><span class="flow-mark" aria-hidden="true"></span><span>{o.label}</span></label>)}
+   </div>
+   <p class="flow-error" role="alert" data-error-text="Bitte wählen Sie eine Antwort."></p>
+   <div class="flow-nav"><button type="button" class="btn btn-primary btn-lg" data-next><span class="btn-label">Weiter</span></button><button type="button" class="flow-back" data-back>Zurück</button></div>
+  </fieldset>
+
+  <fieldset class="flow-step" data-step="flaeche" data-auto aria-labelledby="q-flaeche">
+   <h2 class="flow-q" id="q-flaeche" tabindex="-1">Wie groß ist die Fläche ungefähr?</h2>
+   <div class="flow-options">
+    {flaechen.map(o => <label class="flow-option"><input type="radio" name="flaeche" value={o.value} required/><span class="flow-mark" aria-hidden="true"></span><span>{o.label}</span></label>)}
+   </div>
+   <p class="flow-error" role="alert" data-error-text="Bitte wählen Sie eine Antwort."></p>
+   <div class="flow-nav"><button type="button" class="btn btn-primary btn-lg" data-next><span class="btn-label">Weiter</span></button><button type="button" class="flow-back" data-back>Zurück</button></div>
+  </fieldset>
+
+  <fieldset class="flow-step" data-step="frequenz" data-auto aria-labelledby="q-frequenz">
+   <h2 class="flow-q" id="q-frequenz" tabindex="-1">Wie oft sollen wir kommen?</h2>
+   <div class="flow-options">
+    {frequenzen.map(o => <label class="flow-option"><input type="radio" name="frequenz" value={o.value} required/><span class="flow-mark" aria-hidden="true"></span><span>{o.label}</span></label>)}
+   </div>
+   <p class="flow-error" role="alert" data-error-text="Bitte wählen Sie eine Antwort."></p>
+   <div class="flow-nav"><button type="button" class="btn btn-primary btn-lg" data-next><span class="btn-label">Weiter</span></button><button type="button" class="flow-back" data-back>Zurück</button></div>
+  </fieldset>
+
+  <fieldset class="flow-step" data-step="ort" aria-labelledby="q-ort">
+   <h2 class="flow-q" id="q-ort" tabindex="-1">Wo liegt das Objekt?</h2>
+   <label class="flow-field">Postleitzahl oder Ort<input name="ort" required maxlength="120" autocomplete="postal-code" placeholder="z. B. 64295 Darmstadt"/></label>
+   <p class="flow-error" role="alert" data-error-text="Bitte geben Sie eine Postleitzahl oder einen Ort an."></p>
+   <div class="flow-nav"><button type="button" class="btn btn-primary btn-lg" data-next><span class="btn-label">Weiter</span></button><button type="button" class="flow-back" data-back>Zurück</button></div>
+  </fieldset>
+
+  <fieldset class="flow-step" data-step="start" data-auto aria-labelledby="q-start">
+   <h2 class="flow-q" id="q-start" tabindex="-1">Ab wann brauchen Sie uns?</h2>
+   <div class="flow-options">
+    {starts.map(o => <label class="flow-option"><input type="radio" name="start" value={o.value} required/><span class="flow-mark" aria-hidden="true"></span><span>{o.label}</span></label>)}
+   </div>
+   <p class="flow-error" role="alert" data-error-text="Bitte wählen Sie eine Antwort."></p>
+   <div class="flow-nav"><button type="button" class="btn btn-primary btn-lg" data-next><span class="btn-label">Weiter</span></button><button type="button" class="flow-back" data-back>Zurück</button></div>
+  </fieldset>
+
+  <fieldset class="flow-step" data-step="kontakt" aria-labelledby="q-kontakt">
+   <h2 class="flow-q" id="q-kontakt" tabindex="-1">Wie erreichen wir Sie?</h2>
+   <div class="form-row">
+    <label class="flow-field">Name<input name="name" required autocomplete="name" maxlength="120"/></label>
+    <label class="flow-field">Unternehmen<input name="unternehmen" required autocomplete="organization" maxlength="160"/></label>
+   </div>
+   <div class="form-row">
+    <label class="flow-field">E-Mail<input type="email" name="email" required autocomplete="email" maxlength="180"/></label>
+    <label class="flow-field"><span>Telefon <span class="flow-optional">· optional</span></span><input type="tel" name="telefon" autocomplete="tel" maxlength="50"/></label>
+   </div>
+   <label class="flow-field"><span>Noch etwas, das wir wissen sollten? <span class="flow-optional">· optional</span></span><textarea name="nachricht" rows="3" maxlength="4000" placeholder="z. B. Besonderheiten des Objekts, gewünschte Uhrzeiten …"></textarea></label>
+   <label class="consent"><input type="checkbox" name="datenschutz-bestaetigt" value="ja" required/><span>Ich habe die <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzhinweise</a> zur Verarbeitung meiner Anfrage zur Kenntnis genommen.</span></label>
+   <p class="flow-error" role="alert" data-error-text="Bitte füllen Sie Name, Unternehmen und eine gültige E-Mail-Adresse aus und bestätigen Sie die Datenschutzhinweise."></p>
+   <div class="flow-nav"><button type="submit" class="btn btn-primary btn-lg" data-submit><span class="btn-label">Anfrage senden</span></button><button type="button" class="flow-back" data-back>Zurück</button></div>
+   <p class="fineprint"><strong>Hinweis zur Testversion:</strong> Der Formularversand funktioniert erst nach Einrichtung und Aktivierung von Netlify Forms. Bis dahin erreichen Sie uns per E-Mail oder Telefon.</p>
+  </fieldset>
+ </form>
+
+ <div class="flow-done" data-done hidden>
+  <h2 class="flow-title" tabindex="-1">Danke.</h2>
+  <p class="flow-lead">Wir sehen uns Ihre Angaben an und melden uns innerhalb von zwei Werktagen mit einem unverbindlichen Preis.</p>
+  <p class="flow-sign">{site.owner}<span>MOSAG Gebäudeservice · <a href={'tel:' + site.phoneHref}>{site.phoneDisplay}</a></span></p>
+ </div>
+
+ <div class="flow-failed" data-failed hidden role="alert">
+  <p>Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder melden Sie sich direkt: <a href={'tel:' + site.phoneHref}>{site.phoneDisplay}</a> · <a href={'mailto:' + site.email}>{site.email}</a></p>
+ </div>
+
+ <p class="flow-privacy">Ihre Angaben gehen nur an MOSAG. <a href="/datenschutz/">Datenschutz</a></p>
+</div>
+
+<script>
+ const root = document.getElementById('preisanfrage');
+ if (root) initFlow(root);
+
+ function initFlow(root: HTMLElement) {
+  const form = root.querySelector<HTMLFormElement>('form')!;
+  const intro = root.querySelector<HTMLElement>('[data-intro]')!;
+  const meta = root.querySelector<HTMLElement>('[data-meta]')!;
+  const count = root.querySelector<HTMLElement>('[data-count]')!;
+  const bar = root.querySelector<HTMLElement>('[data-bar]')!;
+  const done = root.querySelector<HTMLElement>('[data-done]')!;
+  const failed = root.querySelector<HTMLElement>('[data-failed]')!;
+  const allSteps = Array.from(form.querySelectorAll<HTMLFieldSetElement>('[data-step]'));
+  const recurring = (root.dataset.recurring || '').split(',');
+  let index = -1; // -1 = Intro
+  let pointerChoice = false;
+
+  // Vorauswahl über ?leistung=<slug>
+  const preset = new URLSearchParams(location.search).get('leistung');
+  if (preset) {
+   const box = form.querySelector<HTMLInputElement>(`input[data-slug="${CSS.escape(preset)}"]`);
+   if (box) box.checked = true;
+  }
+
+  const activeSteps = () => {
+   const slugs = Array.from(form.querySelectorAll<HTMLInputElement>('input[name="leistungen"]:checked')).map(i => i.dataset.slug || '');
+   const needsFrequency = slugs.length === 0 || slugs.some(s => recurring.includes(s));
+   return allSteps.filter(step => step.dataset.step !== 'frequenz' || needsFrequency);
+  };
+
+  const scrollToTop = () => { if (root.getBoundingClientRect().top < 0) root.scrollIntoView({ block: 'start', behavior: 'smooth' }); };
+  const focusHeading = (el: HTMLElement) => el.querySelector<HTMLElement>('[tabindex="-1"]')?.focus({ preventScroll: true });
+
+  function show(i: number) {
+   const steps = activeSteps();
+   // Übersprungene Fragen nicht mitsenden
+   allSteps.forEach(step => { step.disabled = !steps.includes(step); });
+   index = i;
+   intro.classList.toggle('is-active', i < 0);
+   meta.hidden = i < 0;
+   allSteps.forEach(step => step.classList.remove('is-active'));
+   if (i < 0) { focusHeading(intro); return; }
+   const step = steps[i];
+   step.classList.add('is-active');
+   count.textContent = `Frage ${i + 1} von ${steps.length}`;
+   bar.style.width = `${((i + 1) / steps.length) * 100}%`;
+   clearError(step);
+   scrollToTop();
+   focusHeading(step);
+  }
+
+  function clearError(step: HTMLElement) {
+   const err = step.querySelector<HTMLElement>('.flow-error');
+   if (err) err.textContent = '';
+   step.classList.remove('has-error');
+  }
+
+  function validate(step: HTMLFieldSetElement) {
+   let ok: boolean;
+   if (step.hasAttribute('data-group')) {
+    ok = !!step.querySelector('input:checked');
+   } else {
+    ok = Array.from(step.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea')).every(el => {
+     if (el.type === 'text' || el.tagName === 'TEXTAREA') el.value = el.value.trim();
+     return el.checkValidity();
+    });
+   }
+   const err = step.querySelector<HTMLElement>('.flow-error');
+   if (!ok && err) {
+    err.textContent = err.dataset.errorText || '';
+    step.classList.add('has-error');
+    step.querySelector<HTMLElement>('input:invalid, textarea:invalid')?.focus();
+   }
+   if (ok) clearError(step);
+   return ok;
+  }
+
+  function next() {
+   const steps = activeSteps();
+   const step = steps[index];
+   if (!step || !validate(step)) return;
+   if (index < steps.length - 1) show(index + 1);
+  }
+
+  async function submit() {
+   const steps = activeSteps();
+   const bad = steps.findIndex(s => !validate(s));
+   if (bad >= 0) { if (bad !== index) { show(bad); validate(steps[bad]); } return; }
+   const btn = form.querySelector<HTMLButtonElement>('[data-submit]')!;
+   btn.disabled = true;
+   failed.hidden = true;
+   try {
+    const body = new URLSearchParams(new FormData(form) as unknown as Record<string, string>);
+    const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() });
+    if (!res.ok) throw new Error(String(res.status));
+    form.hidden = true;
+    meta.hidden = true;
+    done.hidden = false;
+    scrollToTop();
+    focusHeading(done);
+   } catch {
+    failed.hidden = false;
+   } finally {
+    btn.disabled = false;
+   }
+  }
+
+  root.querySelector('[data-start]')!.addEventListener('click', () => show(0));
+  form.addEventListener('click', e => {
+   const t = (e.target as HTMLElement).closest('button');
+   if (!t) return;
+   if (t.hasAttribute('data-next')) next();
+   if (t.hasAttribute('data-back')) show(index - 1);
+  });
+
+  // Auswahl per Maus/Touch → automatisch weiter. Per Tastatur (Pfeiltasten) nicht, dort Enter/Weiter.
+  form.addEventListener('pointerdown', () => { pointerChoice = true; });
+  form.addEventListener('keydown', () => { pointerChoice = false; });
+  form.addEventListener('change', e => {
+   const input = e.target as HTMLInputElement;
+   const step = input.closest<HTMLFieldSetElement>('[data-step]');
+   if (step) clearError(step);
+   if (input.type === 'radio' && pointerChoice && step?.hasAttribute('data-auto')) {
+    setTimeout(() => { if (activeSteps()[index] === step) next(); }, 260);
+   }
+  });
+
+  // Enter = weiter; nur im letzten Schritt wirklich absenden.
+  form.addEventListener('submit', e => {
+   e.preventDefault();
+   const steps = activeSteps();
+   if (index < steps.length - 1) next();
+   else submit();
+  });
+ }
+</script>

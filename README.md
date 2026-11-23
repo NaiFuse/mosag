@@ -36,6 +36,8 @@ Das Formular nutzt HTML-Attribute für **Netlify Forms**. Es versendet **lokal u
 5. Mit echten Testnachrichten Versand, Spam-Schutz, Datenschutz und Zustellbarkeit testen.
 6. Netlify-Tarif-/Nutzungslimits beachten. Bei anderer Hostingwahl Formularverarbeitung ersetzen.
 
+Es gibt zwei Formulare: `mosag-kontakt` (`/kontakt/`) und `mosag-preisanfrage` (Fragen-Flow auf `/apply/`, sendet per JavaScript an Netlify und zeigt danach direkt eine Danke-Ansicht). Für beide in Netlify Benachrichtigungen einrichten.
+
 Die Formular-Dankeseite ist kein Nachweis, dass eine E-Mail erfolgreich zugestellt wurde. Bei Netlify Forms werden Einsendungen im Dashboard gespeichert und können Benachrichtigungen auslösen.
 
 ## Domain
