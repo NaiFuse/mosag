@@ -23,7 +23,7 @@ export const services = [
 export type PhotoSlot = { src?: string; srcset?: string; alt: string; note: string; credit?: string; creditHref?: string };
 export const photos: Record<string, PhotoSlot> = {
  hero: {
-  src: '/images/hero-hochzeitsturm-himmel.jpg',
+  src: '/images/hero-hochzeitsturm-himmel-1280.jpg',
   srcset: '/images/hero-hochzeitsturm-himmel-1280.jpg 1280w, /images/hero-hochzeitsturm-himmel.jpg 2560w',
   alt: 'Hochzeitsturm (Fünffingerturm) auf der Mathildenhöhe in Darmstadt vor blauem Himmel',
   note: 'Hero – Hochzeitsturm Darmstadt',

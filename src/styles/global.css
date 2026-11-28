@@ -539,3 +539,6 @@ form .btn { justify-self: start; }
 .town-list li { background: var(--color-surface); border-radius: 18px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 .town-list a { color: var(--color-primary); font-weight: 600; text-underline-offset: 3px; }
 .town-list small { color: var(--color-secondary); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* Unterzeile in der H1: trägt Keyword + Stadt, der Slogan bleibt die große Zeile */
+h1 .h1-sub { display: block; margin-top: .5em; font-size: clamp(17px, 1.6vw, 22px); font-weight: 600; line-height: 1.35; letter-spacing: 0; color: var(--color-secondary); }
