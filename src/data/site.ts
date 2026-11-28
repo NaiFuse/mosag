@@ -6,12 +6,12 @@ export const site = {
  region: 'Rhein-Main-Gebiet', domain: 'mosag-gebaeudeservice.de'
 };
 export const services = [
- {slug:'unterhaltsreinigung',name:'Unterhaltsreinigung',icon:'✦',teaser:'Saubere Arbeitswelten, die im Alltag überzeugen.',intro:'Regelmäßige Reinigung von Büro-, Geschäfts- und Gemeinschaftsflächen – abgestimmt auf Nutzungszeiten und Anforderungen.',items:['Büro- und Arbeitsbereiche','Sanitär- und Gemeinschaftsflächen','Laufende Pflege stark frequentierter Bereiche']},
- {slug:'treppenhausreinigung',name:'Treppenhausreinigung',icon:'▤',teaser:'Ein gepflegter erster Eindruck für jede Immobilie.',intro:'Werterhaltende Reinigung von Eingängen, Treppenhäusern und gemeinschaftlich genutzten Verkehrsflächen.',items:['Treppen und Podeste','Eingangsbereiche','Handläufe und Kontaktflächen']},
- {slug:'fensterreinigung',name:'Fensterreinigung',icon:'▣',teaser:'Klare Sicht und ein überzeugender Außenauftritt.',intro:'Professionelle Reinigung von Glasflächen für einen gepflegten Eindruck in gewerblichen Immobilien.',items:['Fenster und Glasflächen','Glasinnentüren und Trennwände','Individuell vereinbarte Reinigungsintervalle']},
- {slug:'winterdienst',name:'Winterdienst',icon:'❄',teaser:'Gut vorbereitet auf die kalte Jahreszeit.',intro:'Winterdienstleistungen für gewerbliche Außenflächen nach individueller Vereinbarung und örtlichen Anforderungen.',items:['Abstimmung der zu betreuenden Flächen','Saisonale Einsatzplanung','Dokumentation nach Vereinbarung']},
- {slug:'hausmeisterservice',name:'Hausmeisterservice',icon:'⌂',teaser:'Verlässliche Betreuung rund um Ihre Immobilie.',intro:'Unterstützende Objektbetreuung und regelmäßige Kontroll- und Pflegeaufgaben nach Absprache.',items:['Regelmäßige Objektkontrollen','Pflege gemeinschaftlicher Bereiche','Koordination vereinbarter Serviceaufgaben']},
- {slug:'sonderreinigung',name:'Sonderreinigung',icon:'✧',teaser:'Besondere Aufgaben brauchen passende Lösungen.',intro:'Individuell geplante Reinigungsleistungen außerhalb des üblichen Turnus – passend zum Objekt und Bedarf.',items:['Reinigung bei besonderem Anlass','Individuelle Objektbesichtigung','Leistungsumfang nach Angebot']}
+ {slug:'unterhaltsreinigung',name:'Unterhaltsreinigung',seoTitle:'Beste Unterhaltsreinigung in Darmstadt – Büroreinigung, Sanitärreinigung & Reinigung von Gemeinschaftsflächen für Unternehmen in Ihrer Nähe',icon:'✦',teaser:'Saubere Arbeitswelten, die im Alltag überzeugen.',intro:'Regelmäßige Reinigung von Büro-, Geschäfts- und Gemeinschaftsflächen – abgestimmt auf Nutzungszeiten und Anforderungen.',items:['Büro- und Arbeitsbereiche','Sanitär- und Gemeinschaftsflächen','Laufende Pflege stark frequentierter Bereiche']},
+ {slug:'treppenhausreinigung',name:'Treppenhausreinigung',seoTitle:'Beste Treppenhausreinigung in Darmstadt – Reinigung von Treppenhäusern, Eingangsbereichen & Handläufen für Hausverwaltungen und Gewerbe',icon:'▤',teaser:'Ein gepflegter erster Eindruck für jede Immobilie.',intro:'Werterhaltende Reinigung von Eingängen, Treppenhäusern und gemeinschaftlich genutzten Verkehrsflächen.',items:['Treppen und Podeste','Eingangsbereiche','Handläufe und Kontaktflächen']},
+ {slug:'fensterreinigung',name:'Fensterreinigung',seoTitle:'Beste Fensterreinigung in Darmstadt – Glasreinigung von Fenstern, Glastüren & Trennwänden für Gewerbeimmobilien in Ihrer Nähe',icon:'▣',teaser:'Klare Sicht und ein überzeugender Außenauftritt.',intro:'Professionelle Reinigung von Glasflächen für einen gepflegten Eindruck in gewerblichen Immobilien.',items:['Fenster und Glasflächen','Glasinnentüren und Trennwände','Individuell vereinbarte Reinigungsintervalle']},
+ {slug:'winterdienst',name:'Winterdienst',seoTitle:'Bester Winterdienst in Darmstadt – Schneeräumung & Streudienst für Gewerbeflächen im Rhein-Main-Gebiet',icon:'❄',teaser:'Gut vorbereitet auf die kalte Jahreszeit.',intro:'Winterdienstleistungen für gewerbliche Außenflächen nach individueller Vereinbarung und örtlichen Anforderungen.',items:['Abstimmung der zu betreuenden Flächen','Saisonale Einsatzplanung','Dokumentation nach Vereinbarung']},
+ {slug:'hausmeisterservice',name:'Hausmeisterservice',seoTitle:'Bester Hausmeisterservice in Darmstadt – Objektbetreuung, Objektkontrollen & Pflege von Gemeinschaftsflächen in Ihrer Nähe',icon:'⌂',teaser:'Verlässliche Betreuung rund um Ihre Immobilie.',intro:'Unterstützende Objektbetreuung und regelmäßige Kontroll- und Pflegeaufgaben nach Absprache.',items:['Regelmäßige Objektkontrollen','Pflege gemeinschaftlicher Bereiche','Koordination vereinbarter Serviceaufgaben']},
+ {slug:'sonderreinigung',name:'Sonderreinigung',seoTitle:'Beste Sonderreinigung in Darmstadt – individuelle Reinigung bei besonderem Anlass für Gewerbe im Rhein-Main-Gebiet',icon:'✧',teaser:'Besondere Aufgaben brauchen passende Lösungen.',intro:'Individuell geplante Reinigungsleistungen außerhalb des üblichen Turnus – passend zum Objekt und Bedarf.',items:['Reinigung bei besonderem Anlass','Individuelle Objektbesichtigung','Leistungsumfang nach Angebot']}
 ];
 
 /**
@@ -43,3 +43,33 @@ export const photos: Record<string, PhotoSlot> = {
  values: { alt: 'MOSAG-Mitarbeiter vor einem betreuten Objekt in Darmstadt', note: 'Team- oder Arbeitsfoto (Hochformat)' }
 };
 
+
+/** Orte im Einsatzgebiet (Luftlinie ab Moltkestraße 10, gerundet). Ortsseite entsteht, sobald src/data/orte/<slug>.md existiert. */
+export const towns = [
+ {slug:'weiterstadt',name:'Weiterstadt',km:6},
+ {slug:'muehltal',name:'Mühltal',km:6},
+ {slug:'griesheim',name:'Griesheim',km:6},
+ {slug:'rossdorf',name:'Roßdorf',km:8},
+ {slug:'pfungstadt',name:'Pfungstadt',km:8},
+ {slug:'ober-ramstadt',name:'Ober-Ramstadt',km:8},
+ {slug:'erzhausen',name:'Erzhausen',km:9},
+ {slug:'messel',name:'Messel',km:10},
+ {slug:'seeheim-jugenheim',name:'Seeheim-Jugenheim',km:12},
+ {slug:'gross-zimmern',name:'Groß-Zimmern',km:13},
+ {slug:'langen',name:'Langen',km:13},
+ {slug:'gross-gerau',name:'Groß-Gerau',km:13},
+ {slug:'reinheim',name:'Reinheim',km:14},
+ {slug:'dieburg',name:'Dieburg',km:14},
+ {slug:'moerfelden-walldorf',name:'Mörfelden-Walldorf',km:14},
+ {slug:'muenster-hessen',name:'Münster (Hessen)',km:16},
+ {slug:'dreieich',name:'Dreieich',km:17},
+ {slug:'gross-umstadt',name:'Groß-Umstadt',km:20},
+ {slug:'bensheim',name:'Bensheim',km:21},
+ {slug:'ruesselsheim',name:'Rüsselsheim am Main',km:22},
+ {slug:'babenhausen',name:'Babenhausen',km:24},
+ {slug:'offenbach',name:'Offenbach am Main',km:27},
+ {slug:'frankfurt',name:'Frankfurt am Main',km:27},
+ {slug:'mainz',name:'Mainz',km:31},
+ {slug:'hanau',name:'Hanau',km:35},
+ {slug:'wiesbaden',name:'Wiesbaden',km:37}
+];

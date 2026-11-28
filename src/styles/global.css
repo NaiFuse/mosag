@@ -513,3 +513,29 @@ form .btn { justify-self: start; }
   .flow-back { align-self: center; }
   .flow-intro > .btn { align-self: stretch; }
 }
+
+/* Ausführliche Leistungsseiten (src/data/articles/*.md) ----------------- */
+.page-hero h1.h1-long { font-size: clamp(32px, 4.8vw, 72px); max-width: 22ch; hyphens: auto; overflow-wrap: break-word; }
+.service-article { max-width: 800px; }
+.service-article h2 { font-size: clamp(28px, 3.2vw, 44px); margin: 2.2em 0 .6em; hyphens: auto; }
+.service-article h2:first-child { margin-top: 0; }
+.service-article h3 { font-size: clamp(21px, 1.9vw, 26px); letter-spacing: -0.02em; margin: 1.8em 0 .5em; hyphens: auto; }
+.service-article p, .service-article li { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.7; color: #3D3D3D; }
+.service-article p { margin: 0 0 1em; }
+.service-article ul, .service-article ol { padding-left: 1.3em; margin: 0 0 1.2em; }
+.service-article li { padding: 3px 0; }
+.service-article strong { color: var(--color-text); font-weight: 600; }
+.service-article a:not(.button) { color: var(--color-primary); text-underline-offset: 3px; }
+.service-article blockquote { margin: 1.4em 0; padding: 18px 24px; border-left: 4px solid var(--color-primary); background: var(--color-surface); border-radius: 0 18px 18px 0; }
+.service-article blockquote p { margin: 0; font-size: clamp(20px, 2vw, 26px); font-weight: 600; color: var(--color-text); }
+.service-article table { display: block; overflow-x: auto; border-collapse: collapse; margin: 0 0 1.4em; font-size: 16px; background: var(--color-surface); border-radius: 18px; }
+.service-article th, .service-article td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--color-muted); vertical-align: top; }
+.service-article th { font-weight: 600; }
+.service-article tr:last-child td { border-bottom: none; }
+.service-article .button { margin: .4em 0 1.4em; }
+
+/* Ortsliste auf /einsatzgebiet/ ---------------------------------------- */
+.town-list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.town-list li { background: var(--color-surface); border-radius: 18px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.town-list a { color: var(--color-primary); font-weight: 600; text-underline-offset: 3px; }
+.town-list small { color: var(--color-secondary); white-space: nowrap; font-variant-numeric: tabular-nums; }
