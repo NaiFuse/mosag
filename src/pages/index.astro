@@ -1,7 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
-import {services,site,photos} from '../data/site';
+import {services,site,photos,towns} from '../data/site';
+const orte = Object.keys(import.meta.glob('../data/orte/*.md')).map(p=>p.split('/').pop()!.replace(/\.md$/,''));
+const nearby = towns.filter(t=>orte.includes(t.slug)).slice(0,8);
 
 const reasons = [
  { n: '01', title: 'Direkt vor Ort', text: 'Wir sind in Ihrer Nähe und betreuen Unternehmen im gesamten Rhein-Main-Gebiet.' },
@@ -9,7 +11,7 @@ const reasons = [
  { n: '03', title: 'Direkt erreichbar', text: '„Da muss ich erst den Kollegen fragen.“ hören Sie bei uns nicht. Sie sprechen direkt mit der Geschäftsführung.' }
 ];
 ---
-<Base title="Beste Gebäudereinigung in Darmstadt – Unterhaltsreinigung, Treppenhausreinigung, Fensterreinigung, Winterdienst & Hausmeisterservice in Ihrer Nähe">
+<Base title="Beste Gebäudereinigung in Darmstadt – Unterhaltsreinigung, Treppenhausreinigung, Fensterreinigung, Winterdienst & Hausmeisterservice in Ihrer Nähe" description="Gebäudereinigung in Darmstadt für Unternehmen und Hausverwaltungen: Büro-, Treppenhaus- und Fensterreinigung, Winterdienst & Hausmeisterservice. Preis in 2 Minuten anfragen.">
 
  <!-- Hero -->
  <section class="hero" aria-labelledby="hero-title">
@@ -68,6 +70,22 @@ const reasons = [
      </li>
     ))}
    </ol>
+  </div>
+ </section>
+
+
+ <!-- Einsatzgebiet -->
+ <section class="section" aria-labelledby="region-title">
+  <div class="container">
+   <div class="section-head">
+    <h2 id="region-title">Gebäudereinigung in Darmstadt <span class="accent">und Umgebung</span></h2>
+   </div>
+   <div class="service-article">
+    <p>MOSAG ist ein inhabergeführter Gebäudeservice mit Sitz in der Moltkestraße 10 in Darmstadt. Wir reinigen und betreuen Büros, Treppenhäuser, Gewerbeimmobilien und öffentliche Einrichtungen – für Unternehmen, Hausverwaltungen und Eigentümer. Umfang, Intervalle und Einsatzzeiten legen wir für jedes Objekt einzeln fest und halten sie im Angebot fest.</p>
+    <p>Hinter MOSAG steht Mohamed El Yassini. Seit September 2023 ist er Hausmeister am Hochzeitsturm, dem Fünffingerturm auf der Mathildenhöhe. Mit derselben Sorgfalt betreut er Ihr Objekt, und Sie sprechen immer direkt mit ihm. <a href="/ueber-uns/">Mehr über MOSAG und unsere Geschichte</a>.</p>
+    <p>Von Darmstadt aus sind wir im gesamten <a href="/einsatzgebiet/">Einsatzgebiet im Rhein-Main-Gebiet</a> unterwegs, zum Beispiel in diesen Orten:</p>
+   </div>
+   <ul class="town-list">{nearby.map(t=><li><a href={`/einsatzgebiet/${t.slug}/`}>Gebäudereinigung {t.name}</a><small>ca. {t.km} km</small></li>)}</ul>
   </div>
  </section>
 
