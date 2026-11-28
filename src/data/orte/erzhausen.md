@@ -196,7 +196,7 @@ Die genaue Lage ist dabei weniger wichtig als die tatsächliche Nutzung Ihrer Im
 
 ### Hauptstraße und historischer Ortskern
 
-Rund um die Hauptstraße wird die Geschichte von Erzhausen sichtbar. Hier befindet sich unter anderem die ehemalige Schillerschule mit dem örtlichen Museum.
+Rund um die Hauptstraße wird die Geschichte von Erzhausen sichtbar. Hier zeigt das Dorfmuseum, wie der Ort früher gelebt und gearbeitet hat.
 
 Wenn Sie in diesem Bereich eine Immobilie verwalten, sind die baulichen Besonderheiten Ihres Gebäudes für die Reinigungsplanung entscheidend.
 

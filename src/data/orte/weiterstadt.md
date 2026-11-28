@@ -62,7 +62,7 @@ Treppenhäuser, Hauseingänge und gemeinschaftlich genutzte Flächen müssen reg
 
 Mit unserer Treppenhausreinigung, unserem Hausmeisterservice und dem Winterdienst können Sie verschiedene Aufgaben der Objektbetreuung miteinander verbinden.
 
-Auch gewerbliche Immobilien im Gewerbegebiet Gräfenhausen können individuell berücksichtigt werden.
+Auch gewerbliche Immobilien in Gräfenhausen können individuell berücksichtigt werden.
 
 Sie möchten wissen, ob wir Ihr Gebäude betreuen können? [Fragen Sie Ihr Objekt direkt bei uns an.](/kontakt/)
 

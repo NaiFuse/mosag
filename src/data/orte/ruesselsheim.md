@@ -42,7 +42,7 @@ MOSAG bietet individuell abgestimmte Reinigungslösungen für Ladenflächen, Ges
 
 ### Gebäudereinigung im Hasengrund
 
-Das Gewerbegebiet Hasengrund ist ein wichtiger Standort für Unternehmen, Büroimmobilien und gewerbliche Einrichtungen im Süden Rüsselsheims.
+Das Gewerbegebiet Hasengrund ist ein wichtiger Standort für Unternehmen, Büroimmobilien und gewerbliche Einrichtungen in Rüsselsheim.
 
 Wo täglich Mitarbeiter, Geschäftspartner und Besucher ein- und ausgehen, entsteht ein kontinuierlicher Reinigungsbedarf.
 

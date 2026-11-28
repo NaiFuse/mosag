@@ -22,8 +22,27 @@ function unlinkMissingTowns() {
   };
 }
 
+// Interne Platzhalter wie [BESTÄTIGEN: …] oder [RECHTLICH PRÜFEN] bleiben im Markdown stehen
+// (damit sie auffindbar sind), erscheinen aber nicht auf der Website. Leere Absätze/Listenpunkte entfallen.
+const PLACEHOLDER = /\s*\[(?:BESTÄTIGEN|RECHTLICH PRÜFEN)[^\]]*\]/g;
+function hidePlaceholders() {
+  const isEmpty = (n) => n.type === 'element' && ['p', 'li'].includes(n.tagName) &&
+    n.children.every((c) => (c.type === 'text' && !c.value.trim()) || (c.type === 'element' && c.tagName !== 'br' && isEmpty({ ...c, tagName: 'p' })));
+  return (tree) => {
+    const walk = (node) => {
+      if (!node.children) return;
+      for (const child of node.children) {
+        if (child.type === 'text') child.value = child.value.replace(PLACEHOLDER, '');
+        else walk(child);
+      }
+      node.children = node.children.filter((c) => !isEmpty(c));
+    };
+    walk(tree);
+  };
+}
+
 export default defineConfig({
   site: 'https://mosag-gebaeudeservice.de',
   output: 'static',
-  markdown: { rehypePlugins: [unlinkMissingTowns] }
+  markdown: { rehypePlugins: [unlinkMissingTowns, hidePlaceholders] }
 });

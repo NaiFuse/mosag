@@ -53,7 +53,7 @@ Wir stimmen die Reinigung auf die Nutzung Ihres Gebäudes ab.
 
 Die waldnahe Lage Trautheims bringt insbesondere im Herbst und bei feuchter Witterung zusätzliche Anforderungen an die Gebäudepflege mit sich.
 
-Bei Wohn- und Gewerbeobjekten rund um die Waldstraße und Odenwaldstraße können verschmutzte Eingänge, Treppenhäuser und gemeinschaftlich genutzte Flächen eine regelmäßige Reinigung erforderlich machen.
+Bei Wohn- und Gewerbeobjekten rund um die Waldstraße können verschmutzte Eingänge, Treppenhäuser und gemeinschaftlich genutzte Flächen eine regelmäßige Reinigung erforderlich machen.
 
 MOSAG bietet dafür individuell abgestimmte Leistungen.
 
@@ -67,7 +67,7 @@ Welche Leistungen tatsächlich benötigt werden, besprechen wir anhand Ihres Geb
 
 ### Gebäudereinigung Frankenhausen
 
-Auch kleinere Objekte verdienen eine zuverlässige Betreuung. Gerade bei Gebäuden rund um die Zeilstraße und Römerstraße kommt es darauf an, Reinigungsleistungen wirtschaftlich und passend zur tatsächlichen Nutzung zu organisieren.
+Auch kleinere Objekte verdienen eine zuverlässige Betreuung. Gerade bei Gebäuden rund um die Zeilstraße und den Römerweg kommt es darauf an, Reinigungsleistungen wirtschaftlich und passend zur tatsächlichen Nutzung zu organisieren.
 
 Wir erstellen Ihnen ein individuelles Angebot, unabhängig davon, ob Sie eine einzelne Leistung oder mehrere Gebäudedienstleistungen benötigen.
 
