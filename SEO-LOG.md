@@ -46,6 +46,7 @@ Eine Zeile pro Änderung: Seite · Änderung · Datum · Grund. Nach 3 Monaten e
 | /einsatzgebiet/frankfurt/ | Neue Ortsseite (~2.200 Wörter, FAQ sichtbar, Links zu allen 6 Leistungen, Über uns, Kontakt, Preisformular, Einsatzgebiet, Nachbarorte). Text in `src/data/orte/frankfurt.md`. Link Offenbach → Frankfurt jetzt aktiv | 2026-11-28 | Lokale Seiten Ring 2 |
 | /einsatzgebiet/wiesbaden/ | Neue Ortsseite (~2.200 Wörter, FAQ sichtbar, Links zu allen 6 Leistungen – im LLM-Text fehlend, ergänzt –, Über uns, Kontakt, Preisformular, Einsatzgebiet, Nachbarorte). Text in `src/data/orte/wiesbaden.md`. Link Mainz → Wiesbaden jetzt aktiv. Damit 25 von 26 Ortsseiten fertig (offen: Hanau) | 2026-11-28 | Lokale Seiten Ring 3 |
 | /einsatzgebiet/hanau/ | Neue Ortsseite (FAQ sichtbar, Links zu allen 6 Leistungen, Über uns, Kontakt, Preisformular, Einsatzgebiet, Nachbarorte Offenbach/Frankfurt/Babenhausen). Text in `src/data/orte/hanau.md`. Korrigiert: „Nähe zum Hafen“ bei Großauheim entfernt (Hafen liegt westlich der Innenstadt), „Bürgerfest auf den Mainwiesen“ durch Brüder-Grimm-Festspiele im Schlosspark Philippsruhe ersetzt. Damit alle 26 Ortsseiten fertig | 2026-11-28 | Lokale Seiten Ring 3 |
+| Alle Seiten | LocalBusiness-Schema (JSON-LD) seitenweit in `src/layouts/Base.astro`: Name, Adresse Darmstadt, Telefon, E-Mail, Inhaber, Einsatzgebiet (Darmstadt + 26 Orte), Angebotskatalog der 6 Leistungen. Zusätzlich Service-Entität auf jeder Leistungs- und Ortsseite mit Verweis auf das Unternehmen (`#business`). Keine Öffnungszeiten, Geo-Koordinaten oder Bewertungen eingetragen | 2026-11-28 | Schema |
 
 Offen: „Beste“-Aussagen vor Veröffentlichung wettbewerbsrechtlich (UWG) prüfen.
 Offen: 4 Platzhalter [BESTÄTIGEN] auf /leistungen/unterhaltsreinigung/ vor Veröffentlichung mit Mohamed klären.
@@ -60,3 +61,4 @@ Offen: /einsatzgebiet/erzhausen/: „ehemalige Schillerschule mit dem örtlichen
 Offen: /einsatzgebiet/gross-gerau/: „Procter-&-Gamble-Straße“ nicht in den LLM-Quellen belegt, nicht verifiziert.
 Offen: /einsatzgebiet/ruesselsheim/: Veranstaltungen „Mainfest“ und „Rüsselsheimer Kerb“ sowie Lage „Hasengrund im Süden“ nicht in den LLM-Quellen belegt.
 - Hanau: Kreisfreiheit seit 01.01.2026, B45-Anbindung Steinheim/Klein-Auheim, Fraunhofer Science Park in Wolfgang – vor Livegang prüfen.
+- Schema: Öffnungszeiten und Geo-Koordinaten ergänzen, sobald bestätigt; danach mit dem Google Rich Results Test prüfen.

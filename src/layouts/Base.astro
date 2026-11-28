@@ -3,7 +3,21 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '@fontsource-variable/inter';
 import '../styles/global.css';
-const {title='Professioneller Gebäudeservice im Rhein-Main-Gebiet',description='MOSAG Gebäudeservice aus Darmstadt: Unterhaltsreinigung, Treppenhausreinigung, Fensterreinigung, Winterdienst, Hausmeisterservice und Sonderreinigung.'}=Astro.props;
+import {site,services,towns} from '../data/site';
+const {schema=[],title='Professioneller Gebäudeservice im Rhein-Main-Gebiet',description='MOSAG Gebäudeservice aus Darmstadt: Unterhaltsreinigung, Treppenhausreinigung, Fensterreinigung, Winterdienst, Hausmeisterservice und Sonderreinigung.'}=Astro.props;
 const canonical=new URL(Astro.url.pathname,Astro.site);
+const home=new URL('/',Astro.site).href;
+const businessId=home+'#business';
+const business={
+ '@type':'LocalBusiness','@id':businessId,
+ name:`${site.name} – ${site.fullName}`,alternateName:'MOSAG Gebäudeservice',
+ url:home,telephone:site.phoneHref,email:site.email,
+ image:new URL('/images/mosag-share.jpg',Astro.site).href,
+ founder:{'@type':'Person',name:site.owner},
+ address:{'@type':'PostalAddress',streetAddress:site.street,postalCode:site.zipCity.split(' ')[0],addressLocality:site.zipCity.split(' ').slice(1).join(' '),addressRegion:'Hessen',addressCountry:'DE'},
+ areaServed:[{'@type':'City',name:'Darmstadt'},...towns.map(t=>({'@type':'City',name:t.name}))],
+ hasOfferCatalog:{'@type':'OfferCatalog',name:'Gebäudeservice',itemListElement:services.map(s=>({'@type':'Offer',itemOffered:{'@type':'Service',name:s.name,url:new URL(`/leistungen/${s.slug}/`,Astro.site).href}}))}
+};
+const jsonLd=JSON.stringify({'@context':'https://schema.org','@graph':[business,...schema.map((n:any)=>({...n,provider:{'@id':businessId}}))]}).replace(/</g,'\\u003c');
 ---
-<!doctype html><html lang="de"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#F8F7F5"/><meta name="description" content={description}/><meta property="og:type" content="website"/><meta property="og:title" content={title+' | MOSAG'}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:site_name" content="MOSAG Gebäudeservice"/><meta property="og:locale" content="de_DE"/><meta property="og:image" content={new URL('/images/mosag-share.jpg',Astro.site)}/><meta property="og:image:type" content="image/jpeg"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:alt" content="MOSAG Gebäudeservice Darmstadt – Logo"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content={new URL('/images/mosag-share.jpg',Astro.site)}/><link rel="canonical" href={canonical}/><link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><title>{title} | MOSAG</title></head><body><a class="skip-link" href="#inhalt">Zum Inhalt springen</a><Header/><main id="inhalt"><slot/></main><Footer/></body></html>
+<!doctype html><html lang="de"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#F8F7F5"/><meta name="description" content={description}/><meta property="og:type" content="website"/><meta property="og:title" content={title+' | MOSAG'}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:site_name" content="MOSAG Gebäudeservice"/><meta property="og:locale" content="de_DE"/><meta property="og:image" content={new URL('/images/mosag-share.jpg',Astro.site)}/><meta property="og:image:type" content="image/jpeg"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:alt" content="MOSAG Gebäudeservice Darmstadt – Logo"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content={new URL('/images/mosag-share.jpg',Astro.site)}/><link rel="canonical" href={canonical}/><link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/apple-touch-icon.png"/><title>{title} | MOSAG</title><script type="application/ld+json" set:html={jsonLd}/></head><body><a class="skip-link" href="#inhalt">Zum Inhalt springen</a><Header/><main id="inhalt"><slot/></main><Footer/></body></html>

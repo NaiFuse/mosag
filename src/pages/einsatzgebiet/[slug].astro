@@ -17,7 +17,7 @@ const page = files[`../../data/orte/${slug}.md`];
 const town = towns.find(t=>t.slug===slug);
 const Content = page.Content;
 ---
-<Base title={page.frontmatter.title} description={page.frontmatter.description}>
+<Base title={page.frontmatter.title} description={page.frontmatter.description} schema={[{'@type':'Service','@id':new URL(`/einsatzgebiet/${slug}/#service`,Astro.site).href,name:`Gebäudereinigung ${town?.name ?? slug}`,serviceType:'Gebäudereinigung und Gebäudeservice',url:new URL(`/einsatzgebiet/${slug}/`,Astro.site).href,areaServed:{'@type':'City',name:town?.name ?? slug}}]}>
  <section class="page-hero"><div class="container"><p class="eyebrow"><a href="/einsatzgebiet/">EINSATZGEBIET</a> / {(town?.name ?? slug).toUpperCase()}</p><h1 class="h1-long">{page.frontmatter.h1}</h1>{page.frontmatter.lead && <p>{page.frontmatter.lead}</p>}</div></section>
  <section class="section"><div class="container"><article class="service-article"><Content/></article></div></section>
  <CTA/>
